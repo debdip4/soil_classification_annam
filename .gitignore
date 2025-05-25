@@ -1,0 +1,12 @@
+# Ignore training and test data
+data/train/
+data/test/
+data/*.csv
+data/**/*.csv
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.bmp
+data/**/*.tiff
+data/**/*.gif
+
