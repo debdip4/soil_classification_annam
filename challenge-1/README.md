@@ -1,10 +1,10 @@
-# 🌱 Soil Classification using Deep Learning
+#  Soil Classification using Deep Learning
 
 This project performs soil type classification using a deep learning model trained on soil spectral or feature data. The model is developed in PyTorch and evaluated with metrics such as Accuracy and F1-score.
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 We use the dataset provided through the [Kaggle Competition: Soil Classification](https://www.kaggle.com/competitions/soil-classification).
 
