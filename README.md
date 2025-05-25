@@ -4,6 +4,12 @@ This repository contains code for training and inference of a soil type classifi
 
 ---
 
+## Data
+- Create a data folder in the root directory
+- In the root folder enter the following in a terminal
+  ```bash
+  kaggle competitions download -c soil-classification
+  
 ## Files
 
 - `training.ipynb`  
