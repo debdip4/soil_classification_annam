@@ -41,3 +41,44 @@ To make predictions on new soil data, open and run:
 ```markdown
 inference.ipynb
 ```
+##  Model Insight
+
+### Overview
+
+The soil classification model is built using a **ResNet18-based neural network** implemented in PyTorch. ResNet (Residual Network) is a deep convolutional neural network architecture designed to tackle the vanishing gradient problem by introducing residual connections. These connections allow gradients to flow more easily through deep networks during training, enabling the network to learn more complex patterns effectively.
+
+### Why ResNet18?
+
+ResNet18 strikes a good balance between depth and computational efficiency. Its relatively shallow architecture (compared to deeper ResNet variants) allows faster training and inference while still maintaining strong feature extraction capabilities. This makes it ideal for a tabular or spectral dataset where input features are numerical soil parameters rather than raw images.
+
+### Input and Feature Engineering
+
+The model takes numerical soil features as input — typically soil spectral measurements or other relevant physical/chemical properties. Proper preprocessing ensures that features are normalized and scaled appropriately, which helps the model converge faster and achieve better accuracy.
+
+### Model Architecture
+
+- The backbone is adapted from ResNet18, with modifications to suit the feature dimension and output classes.
+- The final fully connected layer outputs class probabilities corresponding to different soil types.
+- Activation functions like ReLU are used to introduce non-linearity, enabling the model to capture complex soil patterns.
+- Dropout or batch normalization layers may be used to improve generalization and prevent overfitting.
+
+### Training Process
+
+- The model is trained using cross-entropy loss, a standard for multi-class classification.
+- Optimization is typically done using Adam or SGD optimizers with carefully tuned learning rates.
+- The training loop includes regular validation to monitor overfitting and guide hyperparameter tuning.
+- Early stopping or model checkpoints save the best-performing model weights.
+
+### Evaluation Metrics
+
+- Accuracy provides a straightforward measure of correct predictions.
+- The F1-score, particularly important in imbalanced classification problems, balances precision and recall to give a more holistic performance measure.
+- Achieving an F1-score of **0.96** indicates excellent model capability in distinguishing soil classes.
+
+### Thought Process
+
+The project’s core challenge was to effectively extract meaningful patterns from numerical soil data to accurately classify soil types. Given that raw tabular data doesn’t possess spatial structure like images, the choice of ResNet might seem unconventional at first. However, the ResNet architecture’s residual learning allows the model to build hierarchical representations of input features, enabling better discrimination of subtle soil variations.
+
+The preprocessing and normalization steps were critical to ensure the model’s input features had consistent scales and distributions. Experimentation with different architectures, loss functions, and hyperparameters led to selecting ResNet18 as the optimal trade-off between performance and training time.
+
+The overall goal was to develop a robust model that generalizes well to unseen soil samples, helping in practical applications like agriculture planning, soil health monitoring, and environmental analysis.
