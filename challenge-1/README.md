@@ -1,4 +1,4 @@
-#  Soil Classification using Deep Learning
+#  Soil Classification Hackathon Challenge-1
 
 This project performs soil type classification using a deep learning model trained on soil spectral or feature data. The model is developed in PyTorch and evaluated with metrics such as Accuracy and F1-score.
 
