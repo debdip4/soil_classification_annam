@@ -9,4 +9,4 @@ data-1/**/*.png
 data-1/**/*.bmp
 data-1/**/*.tiff
 data-1/**/*.gif
-notebooks/ipynb_checkpoints
+notebooks/.ipynb_checkpoints
