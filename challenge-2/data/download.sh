@@ -1,10 +1,10 @@
 #!/bin/bash
 
-KAGGLE_DATASET="annam-ai/soilclassification"
+COMPETITION_NAME="soil-classification-part-2"
 TARGET_DIR="./data"
 
-echo "Downloading dataset from Kaggle: $KAGGLE_DATASET"
+echo "Downloading dataset from Kaggle competition: $COMPETITION_NAME"
 mkdir -p "$TARGET_DIR"
-kaggle datasets download -d "$KAGGLE_DATASET" -p "$TARGET_DIR" --unzip
+kaggle competitions download -c "$COMPETITION_NAME" -p "$TARGET_DIR" --unzip
 
 echo "Download complete. Files saved to $TARGET_DIR"
