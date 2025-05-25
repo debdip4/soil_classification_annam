@@ -72,7 +72,6 @@ Ensure you have Kaggle API set up (~/.kaggle/kaggle.json).
 ## Further instructions are provided in README file of each challenge
 
 
-This will generate submission files for various thresholds. The file submission.csv contains the final binary labels.
 
 ## Notes
 
