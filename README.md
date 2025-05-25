@@ -75,10 +75,4 @@ The model takes numerical soil features as input — typically soil spectral mea
 - The F1-score, particularly important in imbalanced classification problems, balances precision and recall to give a more holistic performance measure.
 - Achieving an F1-score of **0.96** indicates excellent model capability in distinguishing soil classes.
 
-### Thought Process
 
-The project’s core challenge was to effectively extract meaningful patterns from numerical soil data to accurately classify soil types. Given that raw tabular data doesn’t possess spatial structure like images, the choice of ResNet might seem unconventional at first. However, the ResNet architecture’s residual learning allows the model to build hierarchical representations of input features, enabling better discrimination of subtle soil variations.
-
-The preprocessing and normalization steps were critical to ensure the model’s input features had consistent scales and distributions. Experimentation with different architectures, loss functions, and hyperparameters led to selecting ResNet18 as the optimal trade-off between performance and training time.
-
-The overall goal was to develop a robust model that generalizes well to unseen soil samples, helping in practical applications like agriculture planning, soil health monitoring, and environmental analysis.
