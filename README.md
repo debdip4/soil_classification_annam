@@ -64,6 +64,9 @@ This repository contains the solution for the Soil Image Classification Challeng
 ## Setup Instructions
 
 ### 1. Clone the Repository
+```bash
+git clone https://github.com/nav-jk/soil_classification_1_annam.git
+```
 
 ### 2. Download Dataset
 
