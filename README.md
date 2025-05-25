@@ -1,78 +1,79 @@
-## Soil Classification Hackathon Challenge-1
+# Soil Image Classification Challenge – Annam.ai, IIT Ropar
 
-This project performs soil type classification using a deep learning model trained on soil spectral or feature data. The model is developed in PyTorch and evaluated with metrics such as Accuracy and F1-score.
+This repository contains the solution for the Soil Image Classification Challenges (Part 1 and Part 2) conducted by Annam.ai at IIT Ropar.
 
----
+## Challenge Overview
 
-##  Dataset
+## Part 1: Soil Type Classification
+- Task: Classify soil images into four categories:
+  - Red Soil
+  - Black Soil
+  - Alluvial Soil
+  - Clay Soil
+- Model Used: ResNet18
+- Approach: Standard supervised learning using labeled soil images
+- Output: A 4-class classifier saved as best_model.pth
 
-We use the dataset provided through the [Kaggle Competition: Soil Classification](https://www.kaggle.com/competitions/soil-classification).
+## Part 2: Soil vs Not-Soil Classification
+- Task: Identify whether an image is a soil image (label = 1) or not (label = 0)
+- Challenge: Training data only contained soil images (no negatives)
+- Solution:
+  - Reused the trained model from Part 1
+  - Inference based on confidence threshold of predicted soil type
+  - Images with max probability > 0.90 were labeled as soil
+- Final Score: F1 = 0.8908
 
-To download the dataset, use the provided shell script:
+## Folder Structure
 
-```bash
-bash download.sh
-```
+.
+├── data/
+│   └── download.sh               # Kaggle download script
+├── docs/card/
+│   ├── architecture.png          # Model architecture diagram
+│   └── ml-metrics.json           # F1 score details
+├── models/
+│   └── best_model.pth            # Pretrained model from Challenge 1
+├── notebooks/
+│   ├── training.ipynb            # Describes logic and reuse strategy
+│   └── inference.ipynb           # Final inference code
+├── src/
+│   ├── pre_processing.py         # Placeholder for preprocessing
+│   └── post_processing.py        # Optional, if needed
+├── submission/
+│   └── submission.csv            # Final binary classification submission
+├── requirements.txt              # All Python dependencies
+└── README.md                     # Project overview and usage
 
-##  Model Details
-
-- **Framework**: PyTorch  
-- **Backbone**: ResNet18-based neural network  
-- **Input**: Numerical soil features  
-- **Output**: Soil class prediction  
+## Setup Instructions
 
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/nav-jk/soil_classification_1_annam.git
-cd soil_classification_1_annam
-```
-### 2. Model Training
+### 2. Install Requirements
 
-Open and run the notebook:
+Create a virtual environment (optional) and install dependencies:
 
-```markdown
-training.ipynb
-```
-### 3. Inference / Prediction
+pip install -r requirements.txt
 
-To make predictions on new soil data, open and run:
+### 3. Download Dataset
 
-```markdown
-inference.ipynb
-```
-##  Model Insight
-
-### Overview
-
-The soil classification model is built using a **ResNet18-based neural network** implemented in PyTorch. ResNet (Residual Network) is a deep convolutional neural network architecture designed to tackle the vanishing gradient problem by introducing residual connections. These connections allow gradients to flow more easily through deep networks during training, enabling the network to learn more complex patterns effectively.
-
-### Why ResNet18?
-
-ResNet18 strikes a good balance between depth and computational efficiency. Its relatively shallow architecture (compared to deeper ResNet variants) allows faster training and inference while still maintaining strong feature extraction capabilities. This makes it ideal for a tabular or spectral dataset where input features are numerical soil parameters rather than raw images.
-
-### Input and Feature Engineering
-
-The model takes numerical soil features as input — typically soil spectral measurements or other relevant physical/chemical properties. Proper preprocessing ensures that features are normalized and scaled appropriately, which helps the model converge faster and achieve better accuracy.
-
-### Model Architecture
-
-- The backbone is adapted from ResNet18, with modifications to suit the feature dimension and output classes.
-- The final fully connected layer outputs class probabilities corresponding to different soil types.
-- Activation functions like ReLU are used to introduce non-linearity, enabling the model to capture complex soil patterns.
-- Dropout or batch normalization layers may be used to improve generalization and prevent overfitting.
-
-### Training Process
-
-- The model is trained using cross-entropy loss, a standard for multi-class classification.
-- Optimization is typically done using Adam or SGD optimizers with carefully tuned learning rates.
-- The training loop includes regular validation to monitor overfitting and guide hyperparameter tuning.
-- Early stopping or model checkpoints save the best-performing model weights.
-
-### Evaluation Metrics
-
-- Accuracy provides a straightforward measure of correct predictions.
-- The F1-score, particularly important in imbalanced classification problems, balances precision and recall to give a more holistic performance measure.
-- Achieving an F1-score of **0.96** indicates excellent model capability in distinguishing soil classes.
+Ensure you have Kaggle API set up (~/.kaggle/kaggle.json), then run:
 
 
+## How to Run
+
+### Run Inference
+
+cd notebooks  
+jupyter notebook inference.ipynb
+
+This will generate submission files for various thresholds. The file submission.csv contains the final binary labels.
+
+## Notes
+
+- Model in models/best_model.pth was trained for Part 1 and reused for Part 2.
+- No additional training was done for Part 2.
+- All code is clean, reproducible, and commented.
+
+## Team
+
+Team Name: HelloWorld
