@@ -53,9 +53,6 @@ This repository contains the solution for the Soil Image Classification Challeng
 
 │ └── post\_processing.py # Optional, if needed
 
-├── submission/
-
-│ └── submission.csv # Final binary classification submission
 
 ├── requirements.txt # All Python dependencies
 
