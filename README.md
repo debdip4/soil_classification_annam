@@ -1,4 +1,4 @@
-## Soil Classification using Deep Learning
+## Soil Classification Hackathon Challenge-1
 
 This project performs soil type classification using a deep learning model trained on soil spectral or feature data. The model is developed in PyTorch and evaluated with metrics such as Accuracy and F1-score.
 
@@ -24,8 +24,8 @@ bash download.sh
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/soil-classification.git
-cd soil-classification
+git clone https://github.com/nav-jk/soil_classification_1_annam.git
+cd soil_classification_1_annam
 ```
 ### 2. Model Training
 
